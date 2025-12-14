@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Должность{% endblock %}
+
+{% block content %}
+<h1>Должность: {{ position.name }}</h1>
+
+<a href="{% url 'position-list' %}">Назад к списку</a> |
+<a href="{% url 'position-update' position.pk %}">Редактировать</a> |
+<a href="{% url 'position-delete' position.pk %}">Удалить</a>
+{% endblock %}

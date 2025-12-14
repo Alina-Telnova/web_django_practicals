@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Практическая 1{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'index' %}">Главная</a> |
+            <a href="{% url 'about' %}">О нас</a> |
+            <a href="{% url 'user-list' %}">Пользователи</a> |
+            <a href="{% url 'org-list' %}">Организации</a> |
+            <a href="{% url 'position-list' %}">Должности</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; Практическая 1</p>
+    </footer>
+</body>
+</html>

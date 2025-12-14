@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Информация о пользователе в организации{% endblock %}
+
+{% block content %}
+<h1>Информация о связи</h1>
+<p><strong>Пользователь:</strong> {{ user_org.user.username }}</p>
+<p><strong>Организация:</strong> {{ user_org.organization.organization_name }}</p>
+<p><strong>Должность:</strong> {{ user_org.position.name }}</p>
+<p><strong>Дата приёма:</strong> {{ user_org.hire_date|date:"d.m.Y H:i" }}</p>
+{% if user_org.dismissal_date %}
+    <p><strong>Дата увольнения:</strong> {{ user_org.dismissal_date|date:"d.m.Y H:i" }}</p>
+{% endif %}
+
+<a href="{% url 'user-list' %}">Назад к списку</a> |
+<a href="{% url 'user-update' user_org.pk %}">Редактировать</a> |
+<a href="{% url 'user-delete' user_org.pk %}">Удалить</a>
+{% endblock %}

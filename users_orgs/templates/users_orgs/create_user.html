@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Добавить пользователя в организацию{% endblock %}
+
+{% block content %}
+<h1>Добавить пользователя в организацию</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+
+<a href="{% url 'user-list' %}">Отмена</a>
+{% endblock %}

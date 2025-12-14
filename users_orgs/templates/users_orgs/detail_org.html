@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Информация об организации{% endblock %}
+
+{% block content %}
+<h1>Организация: {{ organization.organization_name }}</h1>
+<p><strong>Дата основания:</strong> {{ organization.founding_date|date:"d.m.Y" }}</p>
+<p><strong>Адрес:</strong> {{ organization.address }}</p>
+<p><strong>Директор:</strong> {{ organization.director_name }}</p>
+
+<a href="{% url 'org-list' %}">Назад к списку</a> |
+<a href="{% url 'org-update' organization.pk %}">Редактировать</a> |
+<a href="{% url 'org-delete' organization.pk %}">Удалить</a>
+{% endblock %}

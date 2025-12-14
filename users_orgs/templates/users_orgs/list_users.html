@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Пользователи в организациях{% endblock %}
+
+{% block content %}
+<h1>Пользователи в организациях</h1>
+<a href="{% url 'user-create' %}">Добавить запись</a>
+
+<ul>
+    {% for user_org in user_orgs %}
+    <li>
+        {{ user_org.user.username }} — {{ user_org.organization.organization_name }} ({{ user_org.position.name }})
+        <a href="{% url 'user-detail' user_org.pk %}">Подробно</a> |
+        <a href="{% url 'user-update' user_org.pk %}">Редактировать</a> |
+        <a href="{% url 'user-delete' user_org.pk %}">Удалить</a>
+    </li>
+    {% empty %}
+        <li>Нет записей</li>
+    {% endfor %} 
+</ul>
+{% endblock %}

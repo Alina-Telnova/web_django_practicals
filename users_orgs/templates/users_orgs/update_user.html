@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Редактировать пользователя в организации{% endblock %}
+
+{% block content %}
+<h1>Редактировать связь</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+
+<a href="{% url 'user-detail' object.pk %}">Отмена</a>
+{% endblock %}

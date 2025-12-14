@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Должности{% endblock %}
+
+{% block content %}
+<h1>Должности</h1>
+<a href="{% url 'position-create' %}">Добавить должность</a>
+
+<ul>
+    {% for pos in positions %}
+    <li>
+        {{ pos.name }}
+        <a href="{% url 'position-detail' pos.pk %}">Подробнее</a> |
+        <a href="{% url 'position-update' pos.pk %}">Редактировать</a> |
+        <a href="{% url 'position-delete' pos.pk %}">Удалить</a>
+    </li>
+    {% empty %}
+        <li>Нет записей</li>
+    {% endfor %} 
+</ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Удалить пользователя из организации{% endblock %}
+
+{% block content %}
+<h1>Вы уверены, что хотите удалить эту запись?</h1>
+<p><strong>Пользователь:</strong> {{ user_org.user.username }}</p>
+<p><strong>Организация:</strong> {{ user_org.organization.organization_name }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Да, удалить</button>
+</form>
+
+<a href="{% url 'user-list' %}">Отмена</a>
+{% endblock %}

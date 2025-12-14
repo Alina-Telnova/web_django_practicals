@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Организации{% endblock %}
+
+{% block content %}
+<h1>Организации</h1>
+<a href="{% url 'org-create' %}">Добавить организацию</a>
+
+<ul>
+    {% for org in organizations %}
+    <li>
+        {{ org.organization_name }} (основана: {{ org.founding_date }})
+        <a href="{% url 'org-detail' org.pk %}">Подробнее</a> |
+        <a href="{% url 'org-update' org.pk %}">Редактировать</a> |
+        <a href="{% url 'org-delete' org.pk %}">Удалить</a>
+    </li>
+    {% empty %}
+        <li>Нет записей</li>
+    {% endfor %} 
+</ul>
+{% endblock %}
